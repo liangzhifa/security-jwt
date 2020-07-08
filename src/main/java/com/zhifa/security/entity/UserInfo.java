@@ -5,17 +5,17 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+
+import lombok.*;
 
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @TableName(value = "user_info")
+@ToString
 public class UserInfo implements Serializable {
+    public static final String COL_NAME = "name";
     /**
      * 自增id
      */
@@ -25,8 +25,8 @@ public class UserInfo implements Serializable {
     /**
      * 用户名
      */
-    @TableField(value = "name")
-    private String name;
+    @TableField(value = "username")
+    private String username;
 
     /**
      * 密码
@@ -38,7 +38,11 @@ public class UserInfo implements Serializable {
 
     public static final String COL_ID = "id";
 
-    public static final String COL_NAME = "name";
+    public static final String COL_USERNAME = "username";
 
     public static final String COL_PASSWORD = "password";
+
+    public static UserInfoBuilder builder() {
+        return new UserInfoBuilder();
+    }
 }
