@@ -15,17 +15,18 @@ public class JwtTokenUtil {
                 //主题 放入用户名
                 .setSubject(userInfo.getUsername())
                 // 自定义属性 放入用户拥有请求权限
-                .claim("id",userInfo.getId())
+                .claim("id", userInfo.getId())
                 //我这写死，后面可以从userInfo封装
                 .claim("authorities", "admin")
                 //  失效时间
-                .setExpiration(new Date(System.currentTimeMillis() + 7 * 60 * 1000))
+                .setExpiration(new Date(System.currentTimeMillis() + SecurityConstance.jwtActiveTime))
                 //  签名算法和密钥
                 .signWith(SignatureAlgorithm.HS512, SecurityConstance.jwtSigningKey)
                 .compact();
         return token;
     }
-    public static UserInfo parseToken(String token){
+
+    public static UserInfo parseToken(String token) {
         UserInfo userInfo = null;
         try {
             //解析token
