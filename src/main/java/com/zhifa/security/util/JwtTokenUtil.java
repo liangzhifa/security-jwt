@@ -6,9 +6,11 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.Date;
 
+@Slf4j
 public class JwtTokenUtil {
     public static String getToken(UserInfo userInfo) {
         String token = Jwts.builder()
@@ -34,17 +36,17 @@ public class JwtTokenUtil {
                     .setSigningKey(SecurityConstance.jwtSigningKey)
                     .parseClaimsJws(token)
                     .getBody();
-            System.out.println(claims);
             //获取用户名
             String username = claims.getSubject();
             //获取权限
             String authority = claims.get("authorities").toString();
             Integer id = (Integer) claims.get("id");
             userInfo = UserInfo.builder().id(id).username(username).build();
+            log.error("jwt userInfo :{}",userInfo);
         } catch (ExpiredJwtException e) {
-            System.out.println("jwt异常");
+            log.error("jwt异常");
         } catch (Exception e) {
-            System.out.println("异常");
+            log.error("异常");
         }
         return userInfo;
     }

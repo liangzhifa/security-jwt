@@ -3,7 +3,7 @@ server:
     context-path: /
 spring:
   datasource:
-    url: jdbc:mysql://47.100.45.101:3306/security?serverTimezone=Asia/Shanghai&useAffectedRows=true&useSSL=true&characterEncoding=utf8
+    url: jdbc:mysql://127.0.0.1:3306/security?serverTimezone=Asia/Shanghai&useAffectedRows=true&useSSL=true&characterEncoding=utf8
     password: zhifa123
     username: root
     driver-class-name: com.mysql.cj.jdbc.Driver
