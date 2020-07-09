@@ -1,4 +1,4 @@
-package com.zhifa.security.config;
+package com.zhifa.security.config.oauth2Config;
 
 import com.zhifa.security.service.impl.UserDetailsServiceImpl;
 import lombok.extern.slf4j.Slf4j;

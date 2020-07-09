@@ -1,4 +1,4 @@
-package com.zhifa.security.config;
+package com.zhifa.security.config.oauth2Config;
 
 import com.zhifa.security.config.constance.SecurityConstance;
 import com.zhifa.security.service.impl.UserDetailsServiceImpl;
@@ -102,8 +102,6 @@ public class OAuth2AuthorizationServerConfig extends AuthorizationServerConfigur
         tokenServices.setClientDetailsService(endpoints.getClientDetailsService());
         tokenServices.setTokenEnhancer(endpoints.getTokenEnhancer());
         tokenServices.setAccessTokenValiditySeconds((int) TimeUnit.DAYS.toSeconds(SecurityConstance.jwtActiveTime_day)); // 天
-        endpoints.tokenServices(tokenServices);
-
         endpoints.tokenServices(tokenServices);
     }
 

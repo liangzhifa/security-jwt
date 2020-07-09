@@ -1,4 +1,4 @@
-package com.zhifa.security.config;
+package com.zhifa.security.config.oauth2Config;
 
 import com.zhifa.security.dto.SecurityUserDetails;
 import org.springframework.security.oauth2.common.DefaultOAuth2AccessToken;
