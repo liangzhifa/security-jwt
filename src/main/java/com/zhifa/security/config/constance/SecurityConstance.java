@@ -17,6 +17,6 @@ public class SecurityConstance {
     public static String authorization = "Authorization";
     public static String bearer = "bearer";
     public static String token = "token";
-    //http://localhost:8080/oauth/authorize?client_id=client&client_secret=secret&response_type=code&redirect_uri=http://www.baidu.com
+    //http://localhost:8080/oauth/authorize?client_id=client&client_secret=secret&response_type=code
 
 }
