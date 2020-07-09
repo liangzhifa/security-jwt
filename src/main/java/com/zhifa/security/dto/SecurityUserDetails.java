@@ -10,17 +10,29 @@ import java.util.Collection;
 
 @ToString
 public class SecurityUserDetails extends UserInfo implements UserDetails {
+    //这里封装用户返回出去的信息
+    private UserInfo user;
     public SecurityUserDetails(UserInfo user) {
+        this.user = user;
         if (user != null) {
+            this.setId(user.getId());
             this.setUsername(user.getUsername());
             this.setPassword(user.getPassword());
+
         }
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         //理想型返回 admin 权限，可自已处理这块
-        return AuthorityUtils.commaSeparatedStringToAuthorityList("admin");
+        //"ROLE_A, ROLE_B, ROLE_C"
+        String role = "";
+        if (user.getUsername().equals("admin")) {
+            role = "admin,sys";
+        }else {
+            role = "general_user";
+        }
+        return AuthorityUtils.commaSeparatedStringToAuthorityList(role);
     }
 
     /**

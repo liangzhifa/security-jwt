@@ -36,8 +36,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         UserInfo user = userInfoMapper.findByUsername(username);
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));//数据库是明文这里转换一下
         //将 user 对象转化为 UserDetails 对象
-        log.error("loadUserByUsername: {}",username);
-        log.error("user: {}",user);
+        log.warn("loadUserByUsername: {}", username);
+        log.warn("user: {}", user);
         return new SecurityUserDetails(user);
 
     }
