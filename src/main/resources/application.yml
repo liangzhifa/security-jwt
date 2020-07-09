@@ -3,8 +3,8 @@ server:
     context-path: /
 spring:
   datasource:
-    url: jdbc:mysql://47.100.45.101:3306/security?serverTimezone=Asia/Shanghai&useAffectedRows=true&useSSL=true&characterEncoding=utf8
-    password: zhifa123
+    url: jdbc:mysql://数据库ip:3306/security?serverTimezone=Asia/Shanghai&useAffectedRows=true&useSSL=true&characterEncoding=utf8
+    password:
     username: root
     driver-class-name: com.mysql.cj.jdbc.Driver
 mybatis-plus:
